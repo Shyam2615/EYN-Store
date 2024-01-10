@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block start %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary card shadow-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-4" href="/"><img src="/media/logo/EYN_edited.png" alt="..." style="height: 30px; margin-bottom: 4px;"></a>
+      <h3 class="d-lg-none mt-2"><i class="fa-solid fa-heart"></i>Wishlist</h3>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/orders/">Your orders</a>
+          </li>
+        </ul>
+        <h3 class=""><i class="fa-solid fa-heart"></i>Wishlist</h3>
+        <a href="/wishlist/"><div class="btn btn-warning icon1"><i class="fa-solid fa-heart"></i><span class="badge text-bg-secondary rounded-pill" style="position: absolute;
+            top: -1px;">{{w_length}}</span></div></a>
+        <a href="/cart/"><div class="btn btn-primary mx-1"><i class="fa-solid fa-cart-shopping"></i>
+            <span class="badge text-bg-secondary rounded-pill" style="position: absolute;
+            top: -1px;">{{length}}</span></a></div></a>
+        <a class="btn btn-danger mx-2" href="/logout/"><i class="fa-solid fa-right-from-bracket"></i></a>
+      </div>
+      </div>
+    </div>
+  </nav>
+  {% if message %}
+    <div class="container d-flex mt-5" style="justify-content: center; height: 400px;">
+      <img src="https://www.zolut.com/img/wishlist_empty.png?1460902528" alt="Your wishlist is empty">
+    </div>
+    <div class="d-flex mb-3" style="justify-content: center;">
+      <a href="/"><div class="btn btn-warning">Continue shopping</div></a>
+      </div>
+  {% else %}
+  <div class="container my-3 card shadow-lg">
+  <table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">Delete</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">price</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+      <tr>
+        <th scope="row"><a href="/delete-wishlist/{{item.product.product_uuid}}"><div class="btn btn-danger"><i class="fa-solid fa-trash"></i></div></a></th>
+        <td><a href="/product/{{item.product.product_uuid}}"><img src="/media/{{item.product.product_image}}" alt="" style="width: 120px;"></a></td>
+        <td>{{item.product.product_name}}</td>
+        <td><b>₹{{item.product.discounted_price}}\-</b>  <strike>{{item.product.real_price}}\-</strike></td>
+        <td><a href="/add-to-cart/{{item.product.product_uuid}}/" class="btn btn-warning">Add to cart</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+{% endblock %}

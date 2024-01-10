@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block start %}
+{% csrf_token %}
+<nav class="navbar navbar-expand-lg p-1 bg-body-tertiary fixed-top card shadow-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-4" href="/"><img src="/media/logo/EYN_edited.png" alt="..." style="height: 30px; margin-bottom: 4px;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--Side bar-->
+      <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <!-- sidebar header -->
+        <div class="offcanvas-header text-white border-bottom">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/orders/">Your orders</a>
+            </li>
+          </ul>
+          <h3 class=""><i class="fa-solid fa-cart-shopping"></i>Your orders</h3>
+          <a href="/wishlist/"><div class="btn btn-warning icon1"><i class="fa-solid fa-heart"></i><span class="wishlist badge text-bg-secondary rounded-pill">{{w_length}}</span></div></a>
+        <a href="/cart/"><div class="btn btn-primary mx-1"><i class="fa-solid fa-cart-shopping"></i>
+          <span class="wishlist badge text-bg-secondary rounded-pill">{{length}}</span></a></div></a>
+        <a class="btn btn-danger mx-2"  href="/logout/"><i class="fa-solid fa-right-from-bracket"></i></a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  {% if message %}
+  <div class="container d-flex mt-5" style="justify-content: center;">
+  <!-- <img src="https://dev.agriapp.net/public/images/emptycart.png" alt="Not ordered yet"> -->
+  <h3 style="
+  margin-top: 66px;">You haven't ordered anything yet</h3>
+  </div>
+  <div class="d-flex mb-3" style="justify-content: center;">
+    <a href="/"><div class="btn btn-warning">Continue shopping</div></a>
+    </div>
+  {% else %}
+<div class="container card shadow-lg"style="
+margin-top: 66px;">
+    <table class="table ">
+      <thead>
+        <tr>
+          <th scope="col">Sl.No</th>
+          <th scope="col">Image</th>
+          <th scope="col">Name</th>
+          <th scope="col">price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in c_items %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td><a href="/product/{{item.product.product_uuid}}"><img src="/media/{{item.product.product_image}}" alt="" style="width: 120px;"></a></td>
+          <td>{{item.product.product_name}}</td>
+          <td><b>₹{{item.product.discounted_price}}\-</b>  <strike>{{item.product.real_price}}\-</strike></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
+{% endblock %}
