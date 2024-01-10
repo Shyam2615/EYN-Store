@@ -1,13 +1,12 @@
 {
-    "builds": [{
-        "src": "EYN_STORE/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    }],
     "routes": [
         {
-            "src": "/(.*)",
-            "dest": "EYN_STORE/wsgi.py"
+            "src": "/",
+            "dest": "/"
+        },
+        {
+            "src":"/test",
+            "dest":"/"
         }
     ]
 }
