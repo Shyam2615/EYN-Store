@@ -9,11 +9,11 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY requirements.txt /app/
+COPY . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install -r requirments.txt
 
 # Expose port 8000 to allow external connections
 EXPOSE 8000
