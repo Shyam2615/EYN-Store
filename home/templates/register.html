@@ -4,7 +4,7 @@
 <div class="container my-5 card shadow-lg LR">
   {% csrf_token %}
     <form class="my-2" method="post">
-        {% csrf_token %}
+        {% csrf_protect %}
         <h2>Register</h2>
         <hr>
         {% if messages %}
