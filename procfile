@@ -1,0 +1,1 @@
+web gunicorn EYN_STORE.wsgi --log-file -
