@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5#_x*@m992*(9ys$wvoz_93vl@nwa78_hjkn)=3h+x$0(84vvm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["eynstore-xjhw8m7a.b4a.run",]
+ALLOWED_HOSTS = ["eynstore-xjhw8m7a.b4a.run", ]
 
 
 # Application definition
