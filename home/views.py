@@ -13,6 +13,8 @@ from random import sample
 
 
 # Create your views here.
+
+@login_required(login_url='/login/')
 def home_page(request):
     user = request.user
     product = products.objects.all()
@@ -43,6 +45,7 @@ def home_page(request):
         context={"items":items, "mens":mens_Winter_Wear, "electronics":electronics, "length":length,"w_length":w_length}
     return render(request, 'home.html', context)
 
+@login_required(login_url='/login/')
 def products_page(request, product_category):
     user = request.user
     product = products.objects.filter(product_category = product_category)
@@ -72,6 +75,7 @@ def products_page(request, product_category):
     context["w_length"] = w_length
     return render(request, "products.html",context=context)
 
+@login_required(login_url='/login/')
 def product_page(request, product_uuid):
     user = request.user
     items = products.objects.get(product_uuid = product_uuid)
@@ -160,7 +164,6 @@ def logout_page(request):
     logout(request)
     return redirect('/login')
 
-@login_required(login_url='/login/')
 def add_to_cart(request, product_uuid,):
     user = request.user
     item = products.objects.get(product_uuid = product_uuid)
@@ -186,7 +189,6 @@ def add_to_cart(request, product_uuid,):
     
     return redirect('product', product_uuid=product_uuid)
 
-@login_required(login_url='/login/')
 def cart(request):
     user = request.user
     try:
@@ -260,7 +262,6 @@ def checkout_page(request, id):
         return redirect('/order-placed/')
     return render(request, "checkout.html")
 
-@login_required(login_url='/login/')
 def add_wishlist(request, product_uuid):
     user = request.user
     item = products.objects.get(product_uuid=product_uuid)
@@ -275,7 +276,6 @@ def delete_wishlist(request, product_uuid):
     item.delete()
     return redirect('/wishlist/')
 
-@login_required(login_url='/login/')
 def wishlist_page(request):
     user = request.user
     items = wishlist.objects.filter(user=user)
