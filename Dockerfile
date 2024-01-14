@@ -19,4 +19,5 @@ RUN pip install -r requirments.txt
 EXPOSE 8000
 
 # Define the command to run on startup
-CMD python manage.py runserver
+CMD python manage.py runserver 0.0.0.0:8000
+
