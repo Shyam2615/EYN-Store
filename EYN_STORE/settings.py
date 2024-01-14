@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5#_x*@m992*(9ys$wvoz_93vl@nwa78_hjkn)=3h+x$0(84vvm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["eynstore-xjhw8m7a.b4a.run",]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -46,10 +47,17 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://eynstore-xjhw8m7a.b4a.run",
+    # Add any other allowed origins
+]
+
 
 ROOT_URLCONF = 'EYN_STORE.urls'
 
