@@ -6,10 +6,10 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /EYN_STORE
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+COPY . /EYN_STORE/
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --upgrade pip
