@@ -3,9 +3,9 @@ version: '3'
 services:
   web:
     build: .
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn EYN_STORE.wsgi:application -b 0.0.0.0:8000"
     container_name: myapp
     volumes:
       - .:/myapp
     ports:
-      - ":8000"
+      - "8000:8000"
