@@ -246,7 +246,7 @@ def checkout_page(request, id):
         subject = 'Order placed Succesfully'
         email_from = settings.EMAIL_HOST_USER
         recipient_list = ['syb26633@gmail.com', ]
-        message = f'{name}, Ordered \n{p_names}\nsize:{sizes} \ntotal-> ₹{amount}\-\nAddress: {Address}\nPhoneNumber:{phone_number}\nEmail:{email}\ncity:{city}\npincode:{pincode}\nstate:{state}'
+        message = f'{name}, Ordered \n{p_names}\nsize:{sizes} \ntotal-> ₹{amount}\nAddress: {Address}\nPhoneNumber:{phone_number}\nEmail:{email}\ncity:{city}\npincode:{pincode}\nstate:{state}'
 
         sub = 'Order placed Succesfully'
         msg = f'Hii {name} Your order have been succesfully placed\nThanks for ordering in EYN Store\nYou will recieve your product tracking link soon\nThankYou'
