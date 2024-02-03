@@ -31,7 +31,7 @@ def home_page(request):
     mens_Winter_Wear = sample(list(mens_Winter_Wear), min(4, len(mens_Winter_Wear)))
     # mens_Winter_Wear = mens_Winter_Wear[:4]
     electronics = products.objects.filter(product_category = "Electronics")
-    electronics = sample(list(electronics), min(4, len(electronics)))
+    electronics = sample(list(electronics), min(4, len(electronics))) 
     length = len(cart_items.objects.filter(cart__user = user, cart__is_paid = False))
     w_length = len(wishlist.objects.filter(user=user))
     searched = False
