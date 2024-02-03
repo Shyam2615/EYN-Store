@@ -156,3 +156,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'syb26633@gmail.com'
 EMAIL_HOST_PASSWORD = 'ikwk zcce jkig npdq'
+
+# settings.py
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 100 * 1024 * 1024  # 20MB, adjust as needed
