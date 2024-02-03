@@ -25,8 +25,8 @@ def home_page(request):
             Q(product_category__icontains = search)
         )
     items = products.objects.all()
-    items = sample(list(items), min(8, len(items)))
-    # items = items[:8]
+    # items = sample(list(items), min(8, len(items)))
+    items = items[:8]
     mens_Winter_Wear = products.objects.filter(product_category = "Mens Winter Wear")
     mens_Winter_Wear = sample(list(mens_Winter_Wear), min(4, len(mens_Winter_Wear)))
     # mens_Winter_Wear = mens_Winter_Wear[:4]
@@ -49,7 +49,7 @@ def home_page(request):
 def products_page(request, product_category):
     user = request.user
     product = products.objects.filter(product_category = product_category)
-    paginator = Paginator(product, 4)  # Show 25 contacts per page.
+    paginator = Paginator(product, 10)  # Show 25 contacts per page.
 
     page_number = request.GET.get("page", 1)
     page_obj = paginator.get_page(page_number)
@@ -63,7 +63,7 @@ def products_page(request, product_category):
            Q(product_name__icontains = search) |
            Q(product_category__icontains = search)
        )
-       paginator = Paginator(search_result, 8)  # Show 25 contacts per page.
+       paginator = Paginator(search_result, 10)  # Show 25 contacts per page.
 
        page_number = request.GET.get("page", 1)
        page_obj = paginator.get_page(page_number)
@@ -81,7 +81,7 @@ def product_page(request, product_uuid):
     items = products.objects.get(product_uuid = product_uuid)
     category = items.product_category
     similar = products.objects.filter(product_category = category)
-    similar = similar[:4]
+    similar = sample(list(similar), min(8, len(similar)))
     length = len(cart_items.objects.filter(cart__user = user, cart__is_paid = False))
     w_length = len(wishlist.objects.filter(user=user))
     size = sizes.objects.all()

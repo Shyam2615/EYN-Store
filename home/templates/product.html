@@ -92,7 +92,7 @@ margin-top: 66px;
     <div class="card p_card mx-1 col-12 my-2 products-media">
     <a href="/product/{{result.product_uuid}}"><img src="/media/{{result.product_image}}" class="card-img-top" alt="..." >
         <div class="card-body">
-            <h5 class="card-title">{{result.product_name}}</h5>
+            <h5 class="card-title">{{result.product_name|slice:":20"}}...</h5>
             <div class="d-flex">
               <p class="card-text">₹{{result.discounted_price}}\-</p>
               <strike><p class="card-text mx-2">{{result.real_price}}\-</p></strike>
@@ -217,7 +217,7 @@ margin-top: 66px;
   <div class="card mx-1 my-2 products-media">
   <a href="/product/{{similar.product_uuid}}"><img src="/media/{{similar.product_image}}" class="card-img-top" alt="...">
       <div class="card-body">
-          <h5 class="card-title">{{similar.product_name}}</h5>
+          <h5 class="card-title">{{similar.product_name|slice:":20"}}</h5>
           <div class="d-flex">
             <p class="card-text">₹{{similar.discounted_price}}\-</p>
             <strike><p class="card-text mx-2">{{similar.real_price}}\-</p></strike>
