@@ -37,7 +37,11 @@
         <a href="/wishlist/"><div class="btn btn-warning icon1"><i class="fa-solid fa-heart"></i><span class="wishlist badge text-bg-secondary rounded-pill">{{w_length}}</span></div></a>
       <a href="/cart/"><div class="btn btn-primary mx-1"><i class="fa-solid fa-cart-shopping"></i>
         <span class="wishlist badge text-bg-secondary rounded-pill">{{length}}</span></a></div></a>
-      <a class="btn btn-danger mx-2" href="/logout/"><i class="fa-solid fa-right-from-bracket"></i></a>
+        {% if user.is_authenticated %}
+        <a class="btn btn-danger mx-2" href="/logout/"><i class="fa-solid fa-right-from-bracket"></i></a>
+        {% else %}
+          <a class="btn btn-success" href="/login/"><i class="fa-solid fa-right-to-bracket"></i></a>
+        {% endif %}
       </div>
       </div>
     </div>
