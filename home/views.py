@@ -45,7 +45,7 @@ def home_page(request):
     searched = False
     if request.GET.get('search'):
         searched = True
-        paginator = Paginator(product, 4)  # Show 25 contacts per page.
+        paginator = Paginator(product, 10)  # Show 25 contacts per page.
         page_number = request.GET.get("page", 1)
         page_obj = paginator.get_page(page_number)
         context={"products":page_obj, "search":search, "searched":searched , "items":items, "mens":mens_Winter_Wear, "length":length,"w_length":w_length, "user":user}

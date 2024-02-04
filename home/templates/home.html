@@ -79,7 +79,7 @@
     <div class="card p_card mx-1 my-2 products-media">
     <a href="/product/{{product.product_uuid}}"><img src="/media/{{product.product_image}}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">{{product.product_name}}</h5>
+            <h5 class="card-title">{{product.product_name|slice:":20"...}}</h5>
             <div class="d-flex">
               <p class="card-text">₹{{product.discounted_price}}\-</p>
               <strike><p class="card-text mx-2">{{product.real_price}}\-</p></strike>
