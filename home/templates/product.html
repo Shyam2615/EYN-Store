@@ -98,7 +98,7 @@ margin-top: 66px;
         <div class="card-body">
             <h5 class="card-title">{{result.product_name|slice:":20"}}...</h5>
             <div class="d-flex">
-              <p class="card-text">₹{{result.discounted_price}}\-</p>
+              <b><p class="card-text">₹{{result.discounted_price}}\-</p></b>
               <strike><p class="card-text mx-2">{{result.real_price}}\-</p></strike>
             </div>
             <a href="/product/{{result.product_uuid}}" class="btn btn-warning bigCard d-flex" style="justify-content: center;">View</a>
@@ -223,7 +223,7 @@ margin-top: 66px;
       <div class="card-body">
           <h5 class="card-title">{{similar.product_name|slice:":20"}}...</h5>
           <div class="d-flex">
-            <p class="card-text">₹{{similar.discounted_price}}\-</p>
+            <b><p class="card-text">₹{{similar.discounted_price}}\-</p></b>
             <strike><p class="card-text mx-2">{{similar.real_price}}\-</p></strike>
           </div>
           <a href="/product/{{similar.product_uuid}}" class="btn btn-warning bigCard d-flex" style="justify-content: center;">View</a>

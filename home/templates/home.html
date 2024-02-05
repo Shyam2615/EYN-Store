@@ -81,7 +81,7 @@
         <div class="card-body">
             <h5 class="card-title">{{product.product_name|slice:":10"}}...</h5>
             <div class="d-flex">
-              <p class="card-text">₹{{product.discounted_price}}\-</p>
+              <b><p class="card-text">₹{{product.discounted_price}}\-</p></b>
               <strike><p class="card-text mx-2">{{product.real_price}}\-</p></strike>
             </div>
             <a href="/product/{{product.product_uuid}}" class="btn btn-warning bigCard d-flex" style="justify-content: center;">View</a>
@@ -136,7 +136,7 @@
     <div class="card c-media bigCard shadow-lg mx-2 my-2 d-flex">
       <a href="/product/{{men.product_uuid}}"><img src="/media/{{men.product_image}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{men.product_name}}</h5>
+        <h5 class="card-title">{{men.product_name|slice:":10"}}</h5>
       </div></a>
     </div>
     {% endfor %}
@@ -150,7 +150,7 @@
     <div class="card c-media bigCard shadow-lg mx-2 my-2 d-flex">
       <a href="/product/{{men.product_uuid}}"><img src="/media/{{men.product_image}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{men.product_name}}</h5>
+        <h5 class="card-title">{{men.product_name|slice:":10"}}</h5>
       </div></a>
     </div>
     {% endfor %}

@@ -32,7 +32,7 @@ class products(BaseModel):
     size = models.CharField(max_length=100, default="medium")
 
     def __str__(self):
-        return self.product_category
+        return self.product_name
     
 
 class Cart(BaseModel):
